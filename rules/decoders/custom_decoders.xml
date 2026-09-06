@@ -1,0 +1,10 @@
+<!-- Custom Decoders for Open SOC Project -->
+<decoder name="opnsense-suricata">
+  <prematch>^\[suricata\]</prematch>
+</decoder>
+
+<decoder name="opnsense-suricata-child">
+  <parent>opnsense-suricata</parent>
+  <regex>srcip="(\d+.\d+.\d+.\d+)" dstip="(\d+.\d+.\d+.\d+)"</regex>
+  <order>srcip, dstip</order>
+</decoder>
