@@ -4,11 +4,16 @@
 # Set buffer size
 -b 8192
 
-# Watch sensitive password and shadow files
+# Rule 1 : Track all commands executed (execve system calls )
+-a always,exit -F arch=b64 -S execve -k exec_commands
+-a always,exit -F arch=b32 -S execve -k exec_commands
+
+# Rule 2 : Watch System Binary Folders (binary-modification)
+-w /usr/bin/ -p wa -k binary_modification
+-w /usr/sbin -p wa -k binary_modification
+-w /bin/ -p wa -k binary_modification
+
+# Rule 3: watch for changes to /etc/passwd
 -w /etc/passwd -p wa -k passwd_changes
 -w /etc/shadow -p wa -k passwd_changes
-
-# Watch command execution for recon and persistence tools
--w /usr/bin/sudo -p x -k exec_commands
--w /usr/bin/whoami -p x -k exec_commands
--w /usr/bin/crontab -p x -k exec_commands
+-w /etc/sudoers -p wa -k passwd_changes
