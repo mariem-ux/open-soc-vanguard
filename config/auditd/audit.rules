@@ -1,0 +1,14 @@
+# Delete all existing audit rules
+-D
+
+# Set buffer size
+-b 8192
+
+# Watch sensitive password and shadow files
+-w /etc/passwd -p wa -k passwd_changes
+-w /etc/shadow -p wa -k passwd_changes
+
+# Watch command execution for recon and persistence tools
+-w /usr/bin/sudo -p x -k exec_commands
+-w /usr/bin/whoami -p x -k exec_commands
+-w /usr/bin/crontab -p x -k exec_commands
