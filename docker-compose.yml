@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  wazuh.manager:
+    image: wazuh/wazuh-manager:4.7.2
+    container_name: wazuh-manager
+    restart: always
+    ports:
+      - "1514:1514/udp"
+      - "1515:1515"
+      - "514:514/udp"
+      - "55000:55000"
+    environment:
+      - INDEXER_URL=https://wazuh.indexer:9200
+    volumes:
+      - wazuh_api_configuration:/var/ossec/api/configuration
+      - wazuh_etc:/var/ossec/etc
+      - wazuh_logs:/var/ossec/logs
+
+volumes:
+  wazuh_api_configuration:
+  wazuh_etc:
+  wazuh_logs:
