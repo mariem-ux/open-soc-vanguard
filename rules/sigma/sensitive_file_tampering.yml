@@ -1,0 +1,27 @@
+title: Sensitive Authentification File Accessed or Modified
+id: 6982a06f-d8ef-4fd8-8fa8-62ad28f8a5e6_
+status: experimental
+description: >
+  Detects any access or modification to sensitive Linux authentification
+  files such as /etc/passwd, /etc/shadow, or /etc/sudoers.
+  this behavior is commonly associated with privilege escalation and credential access attacks.
+author: Mariem
+date: 2026/07/06
+references:
+  - https://attack.mitre.org/techniques/T1003/
+tags:
+  - attack.credential_access
+  - attack.T1003
+logsource:
+  product: linux
+  service: auditd
+detection:
+  selection:
+    type: 'SYSCALL'
+    key: 'passwd_changes'
+    exe: '/usr/bin/touch'
+  condition: selection
+falsepositives:
+  -System administrators performing legitimate maintenance
+  -Package managers updating system files during upgrades
+level: critical
