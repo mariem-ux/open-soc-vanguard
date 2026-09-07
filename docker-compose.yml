@@ -11,6 +11,9 @@ services:
     environment:
       - INDEXER_URL=https://wazuh.indexer:9200
     volumes:
+      - ./config/wazuh/ossec.conf:/var/ossec/etc/ossec.conf
+      - ./config/wazuh/local_rules.xml:/var/ossec/etc/rules/local_rules.xml
+      - ./rules/decoders/custom_decoders.xml:/var/ossec/etc/decoders/custom_decoders.xml
       - wazuh_api_configuration:/var/ossec/api/configuration
       - wazuh_etc:/var/ossec/etc
       - wazuh_logs:/var/ossec/logs
