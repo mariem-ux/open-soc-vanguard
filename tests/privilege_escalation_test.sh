@@ -1,7 +1,7 @@
 #!/bin/bash
 # Attack A: Privilege Escalation Reconnaissance Simulation
 
-echo "[+] Simulating privilege escalation recon..."
+echo "----- Simulating privilege escalation recon..."
 whoami
 id
 uname -a
