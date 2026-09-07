@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   wazuh.manager:
-    image: wazuh/wazuh-manager:4.7.2
+    build: ./docker/wazuh-manager
     container_name: wazuh-manager
     restart: always
     ports:
@@ -16,6 +14,22 @@ services:
       - wazuh_api_configuration:/var/ossec/api/configuration
       - wazuh_etc:/var/ossec/etc
       - wazuh_logs:/var/ossec/logs
+
+  wazuh.indexer:
+    build: ./docker/wazuh-indexer
+    container_name: wazuh-indexer
+    restart: always
+    ports:
+      - "9200:9200"
+
+  wazuh.dashboard:
+    build: ./docker/wazuh-dashboard
+    container_name: wazuh-dashboard
+    restart: always
+    ports:
+      - "5601:5601"
+    depends_on:
+      - wazuh.indexer
 
 volumes:
   wazuh_api_configuration:
