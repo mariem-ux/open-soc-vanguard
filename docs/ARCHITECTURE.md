@@ -19,11 +19,11 @@ This document details the architectural design, node configurations, log ingesti
 
 ## Security Alert Processing Pipeline
 
-![Security Alert Processing Pipeline](diagrams/alert_processing_pipeline.jpg)
+![Security Alert Processing Pipeline](diagrams/alert_processing_pipeline.png)
 
 ### **Detection & Ingestion Sequence**
 
-1. **Attack Launch:** Kali Linux (`192.168.2.192`) executes network probes or attack vectors (e.g., ping sweeps, port scans).
+1. **Attack Launch:** Kali Linux (`192.168.2.192`) executes network probes or attack vectors (ping sweeps, port scans...).
 2. **Traffic Analysis:** Network packets traverse OPNsense (`192.168.2.1`) where the embedded Suricata IDS evaluates packet signatures.
 3. **Log Forwarding:** Detected security alerts are forwarded instantaneously to the Wazuh Server via Syslog over `UDP 514`.
 4. **Processing & Correlation:** The Wazuh Manager (`192.168.2.10`) ingests raw events, decodes syslog payloads, matches them against active detection rules, and logs alerts.
