@@ -48,11 +48,7 @@ open-soc-vanguard/
 │   ├── ARCHITECTURE.md
 │   ├── Open_SOC_Vanguard_Report.pdf
 │   ├── diagrams/
-│   │   └── network_topology.png
-│   └── screenshots/
-│       ├── active-response-log.png
-│       ├── file-tampering-alert.png
-│       └── wazuh-dashboard.png
+│      └── network_topology.png
 ├── rules/
 │   ├── decoders/
 │   │   └── custom_decoders.xml
