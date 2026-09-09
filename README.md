@@ -48,7 +48,8 @@ open-soc-vanguard/
 │   ├── ARCHITECTURE.md
 │   ├── Open_SOC_Vanguard_Report.pdf
 │   ├── diagrams/
-│      └── network_topology.png
+│      ├──network_topology.png
+       └──alert_processing_pipeline.png
 ├── rules/
 │   ├── decoders/
 │   │   └── custom_decoders.xml
