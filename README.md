@@ -6,7 +6,7 @@ A custom, Linux-centric Security Operations Center (SOC) home lab and detection 
 ## Documentation & Reports
 
 * **Technical Architecture:** Detailed data flow and component integration can be found in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-* **Full Report (PDF):** View the complete academic document in [`docs/Open_SOC_Vanguard_Report.pdf?raw=true`](docs/Open_SOC_Vanguard_Report.pdf?raw=true).
+* **Full Report (PDF):** View the complete academic document in [Download Open SOC Vanguard Report (PDF)](docs/Open_SOC_Vanguard_Report.pdf?raw=true).
 
 ---
 
